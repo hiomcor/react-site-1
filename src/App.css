@@ -1,32 +1,57 @@
-.App {
-  text-align: center;
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: #133039;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+h1{}
+h2{font-size: 40px;}
+.project-box{
+  width:100%;
+  height: 356px;
+  background-image:url(https://picsum.photos/570/356);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-bottom: 50px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.border-lime{
+  box-shadow: -10px 10px #00f69b;
 }
-
-.App-link {
-  color: #61dafb;
+.border-yellow{
+  box-shadow: -10px 10px #ffea00;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.border-purple{
+  box-shadow: -10px 10px #a12ad0;
+}
+.border-blue{
+  box-shadow: -10px 10px #3066d9;
+}
+.negative-margin{
+  margin-top: -200px;
+}
+.stagger{
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+.grey-bg::before{
+    content: '';
+    width: 100%;
+    width: calc(100% - 100px);
+    height: 100%;
+    height: calc(100% - 200px);
+    background-color: #f3f5f5;
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    right: 50px;
+}
+.body-pad{
+  padding-left: 50px;
+  padding-right: 50px;
+  position: relative;
+}
+footer{
+  width: 100%;
+  height: 400px;
+  background: #133039;
 }
