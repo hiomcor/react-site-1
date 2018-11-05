@@ -2,17 +2,6 @@ import React, { Component } from "react";
 import "./App.css";
 import Butter from 'buttercms';
 
-import { Router, IndexRoute, Route } from 'react-router';
-
-const Routes = (props) => (
-  <Router {...props}>
-    <Route path="/" component={App} />
-  </Router>
-);
-
-
-const butter = Butter('3695cf53e5a0371a8802a916dba377a96e4481e4');
-
 let fakeServerData = {
   user: {
     name: 'Corey'
@@ -77,6 +66,7 @@ class Banner extends Component {
     );
   }
 }
+const butter = Butter('ab94a90c416b1453ea87c4f1ad0147b114b6e72c');
 
 class Staggered extends Component {
   render() {
