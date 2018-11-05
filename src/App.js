@@ -1,5 +1,17 @@
 import React, { Component } from "react";
 import "./App.css";
+import Butter from 'buttercms';
+
+import { Router, IndexRoute, Route } from 'react-router';
+
+const Routes = (props) => (
+  <Router {...props}>
+    <Route path="/" component={App} />
+  </Router>
+);
+
+
+const butter = Butter('3695cf53e5a0371a8802a916dba377a96e4481e4');
 
 let fakeServerData = {
   user: {
@@ -104,16 +116,46 @@ class Footer extends Component {
 }
 
 class App extends Component {
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      content: null
+    };
+  }
+
+  componentWillMount() {
+    butter.page.retrieve('*', 'homepage').then((resp) => {
+      this.setState({
+        content: resp.data.data
+      })
+    });
+  }
+
   render() {
-    return (
-      <div className="App">
-        <NavbarBootstrap />
-        <Banner />
-        {/* <Carousel /> */}
-        <Staggered />
-        <Footer />
-      </div>
-    );
+    if (this.state.content) {
+      const homepage = this.state.content;
+      return (
+        <div className="App">
+          <NavbarBootstrap />
+          <Banner />
+          <h1>{homepage.headline}</h1>
+          <img width="100%" src="{homepage.hero_image}" />
+          <button>{homepage.call_to_action}</button>
+          <h3>Customers Love Us!</h3>
+          {homepage.customer_logos}
+          <Staggered />
+          <Footer />
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          Loading...
+        </div>
+      );
+    }
   }
 }
 
